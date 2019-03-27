@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function convertCurrency() {
+            let fromCurrency = document.getElementById("selectFromCurrency").value;
+            let toCurrency = document.getElementById("selectToCurrency").value;
+            let amountMoney = document.getElementById("amount").value;
+
+            if (fromCurrency === toCurrency){
+                console.log("Converted:" + amountMoney + " " + fromCurrency);
+                alert(amountMoney);
+            }
+            else if (fromCurrency == "VND" && toCurrency == "USD"){
+                let convertedValue = amountMoney/23000;
+                console.log("Converted from VND to USD: " + convertedValue + " " + toCurrency);
+                alert(convertedValue + " " + toCurrency);
+            }
+            else if (fromCurrency == "USD" && toCurrency == "VND"){
+                let convertedValue = amountMoney * 23000;
+                console.log("Converted from USD to VND: " + convertedValue + " " + toCurrency);
+                alert(convertedValue + " " + toCurrency);
+            }
+            else {
+                console.log("Not available value")
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>
+                <label for="amount">Amount:</label>
+            </th>
+            <th>
+                <label>Convert from:</label>
+            </th>
+            <th>
+                <label>Convert to:</label>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" id="amount" placeholder="Enter amount of money" value="a">
+            </td>
+            <td>
+                <select id="selectFromCurrency">
+                    <option value="USD">USD</option>
+                    <option value="VND">VND</option>
+                </select>
+            </td>
+            <td>
+                <select id="selectToCurrency">
+                    <option value="USD">USD</option>
+                    <option value="VND">VND</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" onclick="convertCurrency()">Convert</button>
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+</html>
